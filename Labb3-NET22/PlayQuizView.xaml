@@ -14,12 +14,12 @@
                        FontSize="20" FontWeight="Bold"
                        TextWrapping="Wrap"
                        TextAlignment="Center"
-                       Width="400" Margin="10"/>
+                       Width="400" Margin="30"/>
 
-            <Button x:Name="AnswerBtn1" Tag="0" Content="Answer 1" Width="250" Margin="5" Click="Answer_Click"/>
-            <Button x:Name="AnswerBtn2" Tag="1" Content="Answer 2" Width="250" Margin="5" Click="Answer_Click"/>
-            <Button x:Name="AnswerBtn3" Tag="2" Content="Answer 3" Width="250" Margin="5" Click="Answer_Click"/>
-            <Button x:Name="AnswerBtn4" Tag="3" Content="Answer 4" Width="250" Margin="5" Click="Answer_Click"/>
+            <Button x:Name="AnswerBtn0" Tag="0" Content="Answer 0" Width="250" Margin="5" Click="Answer_Click"/>
+            <Button x:Name="AnswerBtn1" Tag="1" Content="Answer 1" Width="250" Margin="5" Click="Answer_Click"/>
+            <Button x:Name="AnswerBtn2" Tag="2" Content="Answer 2" Width="250" Margin="5" Click="Answer_Click"/>
+            <Button x:Name="AnswerBtn3" Tag="3" Content="Answer 3" Width="250" Margin="5" Click="Answer_Click"/>
 
             <TextBlock x:Name="ResultText" Text="" FontSize="16" FontWeight="Bold" Margin="10"/>
             <TextBlock x:Name="ScoreText" Text="" FontSize="16" FontWeight="Bold" Margin="10"/>

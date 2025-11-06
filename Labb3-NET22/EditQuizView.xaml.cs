@@ -32,7 +32,7 @@ namespace Labb3_NET22
             InitializeComponent();
         }
 
-        private void LoadQuiz_Click(object sender, RoutedEventArgs e)
+        private async void LoadQuiz_Click(object sender, RoutedEventArgs e)
         {
             string folderPath = System.IO.Path.Combine(
         Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
@@ -48,7 +48,7 @@ namespace Labb3_NET22
             {
                 currentFilePath = dialog.FileName;
 
-                string json = System.IO.File.ReadAllText(dialog.FileName);
+                string json = await System.IO.File.ReadAllTextAsync(dialog.FileName);
                 loadedQuiz = System.Text.Json.JsonSerializer.Deserialize<Labb3_NET22.DataModels.Quiz>(json);
 
                 QuestionListBox.Items.Clear();
@@ -65,66 +65,76 @@ namespace Labb3_NET22
         {
             if (QuestionListBox.SelectedIndex >= 0)
             {
-                var q = loadedQuiz.Questions.ElementAt(QuestionListBox.SelectedIndex);
+                Question q = loadedQuiz.Questions.ElementAt(QuestionListBox.SelectedIndex);
                 EditQuestionBox.Text = q.Statement;
-                EditAnswer1Box.Text = q.Answers[0];
-                EditAnswer2Box.Text = q.Answers[1];
-                EditAnswer3Box.Text = q.Answers[2];
-                EditAnswer4Box.Text = q.Answers[3];
+                EditAnswer0Box.Text = q.Answers[0];
+                EditAnswer1Box.Text = q.Answers[1];
+                EditAnswer2Box.Text = q.Answers[2];
+                EditAnswer3Box.Text = q.Answers[3];
                 EditCorrectBox.Text = q.CorrectAnswer.ToString();
             }
         }
 
-        private void SaveChanges_Click(object sender, RoutedEventArgs e)
+        private async void SaveChanges_Click(object sender, RoutedEventArgs e)
         {
-            if (QuestionListBox.SelectedIndex < 0) return;
+            
+            int selectedIndex = QuestionListBox.SelectedIndex;
+            List<Question> updatedQuestions = loadedQuiz.Questions.ToList();
 
-            int index = QuestionListBox.SelectedIndex;
-            var list = loadedQuiz.Questions.ToList();
+            
+            Question newQuestion = new Question(EditQuestionBox.Text,new string[]
+            {
+                EditAnswer0Box.Text,
+                EditAnswer1Box.Text,
+                EditAnswer2Box.Text,
+                EditAnswer3Box.Text
+            },
 
-            var newQ = new Question(
-                EditQuestionBox.Text,
-                new string[]
-                {
-                    EditAnswer1Box.Text,
-                    EditAnswer2Box.Text,
-                    EditAnswer3Box.Text,
-                    EditAnswer4Box.Text
-                },
                 int.Parse(EditCorrectBox.Text)
             );
 
-            list[index] = newQ;
+
+            updatedQuestions[selectedIndex] = newQuestion;
 
             loadedQuiz = new Quiz();
-            
-            
-            
-            foreach (var q in list)
+
+            foreach (var q in updatedQuestions)
+            {
                 loadedQuiz.AddQuestion(q.Statement, q.CorrectAnswer, q.Answers);
+            }
 
-            File.WriteAllText(currentFilePath, JsonSerializer.Serialize(loadedQuiz, new JsonSerializerOptions { WriteIndented = true }));
+            
 
-            QuestionListBox.Items[index] = newQ.Statement;
+
+
+            string json = JsonSerializer.Serialize(loadedQuiz, new JsonSerializerOptions { WriteIndented = true });
+            await File.WriteAllTextAsync(currentFilePath, json);
+
+            QuestionListBox.Items[selectedIndex] = newQuestion.Statement;
 
             MessageBox.Show("Question updated!");
         }
 
-        private void DeleteQuestion_Click(object sender, RoutedEventArgs e)
+        private async void DeleteQuestion_Click(object sender, RoutedEventArgs e)
         {
             if (QuestionListBox.SelectedIndex >= 0)
             {
-                var list = loadedQuiz.Questions.ToList();
+                List<Question> list = loadedQuiz.Questions.ToList();
 
                 list.RemoveAt(QuestionListBox.SelectedIndex);
-                
-                
-                loadedQuiz = new Quiz();
-                foreach (var q in list)
-                    loadedQuiz.AddQuestion(q.Statement, q.CorrectAnswer, q.Answers);
 
-                File.WriteAllText(currentFilePath, JsonSerializer.Serialize(loadedQuiz, new JsonSerializerOptions { WriteIndented = true }));
+                loadedQuiz = new Quiz();
+                foreach (Question q in list)
+                {
+                    loadedQuiz.AddQuestion(q.Statement, q.CorrectAnswer, q.Answers);
+                }
+
+             
+                string json = JsonSerializer.Serialize(loadedQuiz, new JsonSerializerOptions { WriteIndented = true });
+                await File.WriteAllTextAsync(currentFilePath, json);
+
                 QuestionListBox.Items.RemoveAt(QuestionListBox.SelectedIndex);
+
                 MessageBox.Show("Question deleted!");
             }
         }

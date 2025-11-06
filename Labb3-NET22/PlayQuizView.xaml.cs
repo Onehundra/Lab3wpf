@@ -30,7 +30,8 @@ namespace Labb3_NET22
         {
             InitializeComponent();
             currentQuiz = quiz;
-            questions = quiz.Questions.ToList();
+            Random random = new Random();
+            questions = quiz.Questions.OrderBy(q => random.Next()).ToList();
             ShowQuestion();
         }
 
@@ -41,10 +42,10 @@ namespace Labb3_NET22
                 var q = questions[currentIndex];
                 QuestionText.Text = q.Statement;
 
-                AnswerBtn1.Content = q.Answers[0];
-                AnswerBtn2.Content = q.Answers[1];
-                AnswerBtn3.Content = q.Answers[2];
-                AnswerBtn4.Content = q.Answers[3];
+                AnswerBtn0.Content = q.Answers[0];
+                AnswerBtn1.Content = q.Answers[1];
+                AnswerBtn2.Content = q.Answers[2];
+                AnswerBtn3.Content = q.Answers[3];
 
                 
 
@@ -64,10 +65,10 @@ namespace Labb3_NET22
             else
             {
                 QuestionText.Text = "Quiz Complete!";
+                AnswerBtn0.Visibility = Visibility.Collapsed;
                 AnswerBtn1.Visibility = Visibility.Collapsed;
                 AnswerBtn2.Visibility = Visibility.Collapsed;
                 AnswerBtn3.Visibility = Visibility.Collapsed;
-                AnswerBtn4.Visibility = Visibility.Collapsed;
                 NextButton.Visibility = Visibility.Collapsed;
 
                 double finalPercent = (double)correctAnswers / questions.Count * 100;

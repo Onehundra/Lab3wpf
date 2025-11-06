@@ -14,8 +14,7 @@ public class Quiz
         {
             if (includeDefaultQuestions)
             {
-                Questions.Add(new Question(
-                    "1. In 1768, Captain James Cook set out to explore which ocean?",
+                Questions.Add(new Question("1. In 1768, Captain James Cook set out to explore which ocean?",
                     new string[] { "Pacific Ocean", "Atlantic Ocean", "Indian Ocean", "Arctic Ocean" },
                     0));
 
@@ -71,31 +70,26 @@ public class Quiz
         Title = title;
     }
 
-    public Question GetRandomQuestion()
-    {
-        if (Questions.Count == 0)
-            throw new InvalidOperationException("No questions available.");
-
-        Random rnd = new Random();
-        int index = rnd.Next(Questions.Count);
-        return Questions[index];
-    }
-
-    public void AddQuestion(string statement, int correctAnswer, params string[] answers)
-    {
+    public void AddQuestion(string statement, int correctAnswer, params string[] answers) 
+    { 
         var question = new Question
         {
             Statement = statement,
             Answers = answers,
             CorrectAnswer = correctAnswer
         };
-
-        Questions.Add(question);
+        
+        
+        Questions.Add(question); 
     }
+    public Question GetRandomQuestion()
+    {
+            throw new InvalidOperationException();
+    }
+
 
     public void RemoveQuestion(int index)
     {
-        if (index >= 0 && index < Questions.Count)
-            Questions.RemoveAt(index);
+        throw new InvalidOperationException();
     }
 }

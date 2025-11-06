@@ -34,17 +34,17 @@ namespace Labb3_NET22
         private void AddQuestion_Click(object sender, RoutedEventArgs e)
         {
             string questionText = QuestionBox.Text;
-            string[] answers = { Answer1Box.Text, Answer2Box.Text, Answer3Box.Text, Answer4Box.Text };
+            string[] answers = { Answer1Box.Text, Answer2Box.Text, Answer3Box.Text, Answer3Box.Text };
             int correctAnswer = int.Parse(CorrectBox.Text);
 
             currentQuiz.AddQuestion(questionText, correctAnswer, answers);
 
             MessageBox.Show("Question added!");
             QuestionBox.Text = "Write New Questiom Here";
-            Answer1Box.Text = "Write Answer ¨0¨ Here";
-            Answer2Box.Text = "Write Answer ¨1¨ Here";
-            Answer3Box.Text = "Write Answer ¨2¨ Here";
-            Answer4Box.Text = "Write Answer ¨3¨ Here";
+            Answer0Box.Text = "Write Answer ¨0¨ Here";
+            Answer1Box.Text = "Write Answer ¨1¨ Here";
+            Answer2Box.Text = "Write Answer ¨2¨ Here";
+            Answer3Box.Text = "Write Answer ¨3¨ Here";
             CorrectBox.Text = "Write Correct Asnwer Number here (0-3)";
         }
 
