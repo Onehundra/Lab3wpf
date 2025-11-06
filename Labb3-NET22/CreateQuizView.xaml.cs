@@ -54,15 +54,25 @@ namespace Labb3_NET22
                 Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                 "Labb3_NET22");
 
+
+
             if (!Directory.Exists(folder))
+            {
                 Directory.CreateDirectory(folder);
+            }
+
+
 
             string filePath = System.IO.Path.Combine(folder, QuizTitleBox.Text + ".json");
+
 
             string json = JsonSerializer.Serialize(currentQuiz, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(filePath, json);
 
-            MessageBox.Show($"Quiz saved as {QuizTitleBox.Text}.json");
+
+
+
+            MessageBox.Show($"Quiz saved as      {QuizTitleBox.Text}.json");
         }
 
         private void ReturnToMenu_Click(object sender, RoutedEventArgs e)
