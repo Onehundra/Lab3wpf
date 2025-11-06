@@ -35,14 +35,16 @@ namespace Labb3_NET22
         private async void LoadQuiz_Click(object sender, RoutedEventArgs e)
         {
             string folderPath = System.IO.Path.Combine(
-        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-        "Labb3_NET22");
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            "Labb3_NET22");
             
             System.IO.Directory.CreateDirectory(folderPath);
 
             var dialog = new Microsoft.Win32.OpenFileDialog();
             dialog.Filter = "JSON Files|*.json";
             dialog.InitialDirectory = folderPath;
+
+
 
             if (dialog.ShowDialog() == true)
             {
