@@ -9,14 +9,14 @@
     <Grid Background="LightBlue">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 
-            <TextBlock Text="Create Quiz" FontSize="24" FontWeight="Bold" Margin="10"/>
-            <TextBox x:Name="QuizTitleBox" Width="200" Height="30" Margin="10" Text="Quiz title"/>
-            <TextBox x:Name="QuestionBox" Width="400" Margin="5" Text="Question"/>
-            <TextBox x:Name="Answer1Box" Width="400" Margin="2" Text="Answer 1"/>
-            <TextBox x:Name="Answer2Box" Width="400" Margin="2" Text="Answer 2"/>
-            <TextBox x:Name="Answer3Box" Width="400" Margin="2" Text="Answer 3"/>
-            <TextBox x:Name="Answer4Box" Width="400" Margin="2" Text="Answer 4"/>
-            <TextBox x:Name="CorrectBox" Width="50" Margin="5" Text="1"/>
+            <TextBlock Text="Create Quiz" FontSize="24" HorizontalAlignment="Center" FontWeight="Bold" Margin="10"/>
+            <TextBox x:Name="QuizTitleBox" Width="200" Height="30" Margin="10" Text="Write The Quiz Title Here"/>
+            <TextBox x:Name="QuestionBox" Width="400" Margin="5" Text="Write Questiom Here"/>
+            <TextBox x:Name="Answer1Box" Width="400" Margin="2" Text="Write Answer ¨0¨ Here"/>
+            <TextBox x:Name="Answer2Box" Width="400" Margin="2" Text="Write Answer ¨1¨ Here"/>
+            <TextBox x:Name="Answer3Box" Width="400" Margin="2" Text="Write Answer ¨2¨ Here"/>
+            <TextBox x:Name="Answer4Box" Width="400" Margin="2" Text="Write Answer ¨3¨ Here"/>
+            <TextBox x:Name="CorrectBox" Width="300" Margin="5" Text="Write Correct Asnwer Number here (0-3)"/>
 
             <Button Content="Add Question" Width="120" Margin="5" Click="AddQuestion_Click"/>
             <Button Content="Save Quiz" Width="120" Margin="5" Click="SaveQuiz_Click"/>

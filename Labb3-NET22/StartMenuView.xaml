@@ -11,11 +11,11 @@
 
             <TextBlock Text="QUIZ" FontFamily="Algerian" FontSize="50" FontWeight="Bold" HorizontalAlignment="Center" Margin="10"/>
 
-            <Button Content="Standard Quiz" Width="250" Height="40" Margin="5" Click="StartQuiz_Click"/>
+            <Button Content="Standard Quiz" Width="250" Height="40" Margin="5" Click="StandardQuiz_Click"/>
             <Button Content="Create Quiz" Width="200" Height="30" Margin="5" Click="CreateQuiz_Click"/>
             <Button Content="Play Created Quiz" Width="200" Height="50" Margin="7" Click="PlaySavedQuiz_Click"/>
             <Button Content="Edit Quiz" Width="200" Height="30" Margin="5" Click="EditQuiz_Click"/>
-            <Button Content="Exit" Width="100" Height="30" Margin="5"/>
+            <Button Content="Exit" Width="100" Height="30" Margin="5" Click="Exit_Click"/>
 
         </StackPanel>
     </Grid>

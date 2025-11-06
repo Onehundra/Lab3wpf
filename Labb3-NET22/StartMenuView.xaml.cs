@@ -28,9 +28,9 @@ namespace Labb3_NET22
         {
             InitializeComponent();
         }
-        private void StartQuiz_Click(object sender, RoutedEventArgs e)
+        private void StandardQuiz_Click(object sender, RoutedEventArgs e)
         {
-            Quiz quiz = new Quiz();
+            Quiz quiz = new Quiz(true);
             var playView = new PlayQuizView(quiz);
 
 
@@ -73,6 +73,10 @@ namespace Labb3_NET22
             {
                 mainWindow.Content = new EditQuizView();
             }
+        }
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
 
     }

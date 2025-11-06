@@ -40,12 +40,12 @@ namespace Labb3_NET22
             currentQuiz.AddQuestion(questionText, correctAnswer, answers);
 
             MessageBox.Show("Question added!");
-            QuestionBox.Text = "";
-            Answer1Box.Text = "";
-            Answer2Box.Text = "";
-            Answer3Box.Text = "";
-            Answer4Box.Text = "";
-            CorrectBox.Text = "1";
+            QuestionBox.Text = "Write New Questiom Here";
+            Answer1Box.Text = "Write Answer ¨0¨ Here";
+            Answer2Box.Text = "Write Answer ¨1¨ Here";
+            Answer3Box.Text = "Write Answer ¨2¨ Here";
+            Answer4Box.Text = "Write Answer ¨3¨ Here";
+            CorrectBox.Text = "Write Correct Asnwer Number here (0-3)";
         }
 
         private void SaveQuiz_Click(object sender, RoutedEventArgs e)
@@ -72,7 +72,7 @@ namespace Labb3_NET22
 
 
 
-            MessageBox.Show($"Quiz saved as      {QuizTitleBox.Text}.json");
+            MessageBox.Show($"Quiz saved as----->   {QuizTitleBox.Text}.json");
         }
 
         private void ReturnToMenu_Click(object sender, RoutedEventArgs e)

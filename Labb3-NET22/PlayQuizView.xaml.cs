@@ -46,10 +46,7 @@ namespace Labb3_NET22
                 AnswerBtn3.Content = q.Answers[2];
                 AnswerBtn4.Content = q.Answers[3];
 
-                AnswerBtn1.IsEnabled = true;
-                AnswerBtn2.IsEnabled = true;
-                AnswerBtn3.IsEnabled = true;
-                AnswerBtn4.IsEnabled = true;
+                
 
                 ResultText.Text = "";
 
@@ -88,22 +85,16 @@ namespace Labb3_NET22
             {
                 correctAnswers++;
                 ResultText.Text = "Correct!";
-                ResultText.Foreground = Brushes.Green;
             }
             else
             {
-                ResultText.Text = $"Wrong! Correct: {q.Answers[q.CorrectAnswer]}";
-                ResultText.Foreground = Brushes.Red;
+                ResultText.Text = $"Wrong! \n Correct Answer: {q.Answers[q.CorrectAnswer]}";
             }
 
             double percent = ((double)correctAnswers / (currentIndex + 1)) * 100;
             ScoreText.Text = $"Score: {correctAnswers}/{currentIndex + 1} ({percent:F1}%)";
 
-            // Stäng av knappar tills man går vidare
-            AnswerBtn1.IsEnabled = false;
-            AnswerBtn2.IsEnabled = false;
-            AnswerBtn3.IsEnabled = false;
-            AnswerBtn4.IsEnabled = false;
+            
         }
 
         private void NextButton_Click(object sender, RoutedEventArgs e)
