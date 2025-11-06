@@ -23,6 +23,7 @@ namespace Labb3_NET22
         public MainWindow()
         {
             InitializeComponent();
+            Content = new StartMenuView();
         }
     }
 }
