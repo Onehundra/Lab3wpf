@@ -25,7 +25,7 @@
             <TextBlock x:Name="ScoreText" Text="" FontSize="16" FontWeight="Bold" Margin="10"/>
 
             <Button x:Name="NextButton" Content="Next Question" Width="150" Margin="10" Click="NextButton_Click"/>
-            <Button x:Name="ReturnButton" Content="Return" Width="100" Margin="5" Click="ReturnButton_Click"/>
+            <Button x:Name="ReturnButton" Content="Return To Menu" Width="100" Margin="5" Click="ReturnButton_Click"/>
 
         </StackPanel>
     </Grid>

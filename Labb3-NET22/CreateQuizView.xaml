@@ -20,7 +20,7 @@
 
             <Button Content="Add Question" Width="120" Margin="5" Click="AddQuestion_Click"/>
             <Button Content="Save Quiz" Width="120" Margin="5" Click="SaveQuiz_Click"/>
-            <Button Content="Return" Width="120" Margin="5" Click="ReturnToMenu_Click"/>
+            <Button Content="Return To Menu" Width="120" Margin="5" Click="ReturnToMenu_Click"/>
         </StackPanel>
 
     </Grid>
